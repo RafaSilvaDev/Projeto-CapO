@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+@mixin flexDisplay($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  @include flexDisplay(row, center, center);
+  background: url("../img/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  height: 100vh;
+  width: 100vw;
+
+  .container {
+    @include flexDisplay(column, none, center);
+    height: 600px;
+    width: 450px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 50px;
+
+    .logo {
+      height: 40px;
+      width: 100%;
+      background: url("../img/bosch_logo.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    h2, h4 {
+      margin: 50px 0;
+      font-weight: 400;
+      text-align: justify
+    }
+
+    form {
+      @include flexDisplay(column, center, center);
+      width: 100%;
+      margin-top: 20px;
+
+      label {
+        @include flexDisplay(row, space-between, center);
+        width: 100%;
+        padding: 5px 0;
+
+        .tooltip {
+          border: 1px solid #7a7a7a;
+          padding: 0 6px;
+          border-radius: 100%;
+          font-size: 12px;
+          color: #7a7a7a;
+
+          position: relative;
+          display: inline-block;
+          
+          &:hover .tooltiptext {
+            visibility: visible;
+          }
+
+          .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+           
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            left: 105%;
+          }
+          
+        }
+      }
+
+      input {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 60px;
+        outline: none;
+        border: 1px solid #7a7a7a;
+      }
+
+      button {
+        outline: none;
+        border: none;
+        background-color: #005691;
+        color: #fff;
+        width: 300px;
+        padding: 10px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover,
+        &:focus {
+          background-color: #00427d;
+          transition: all 0.2s;
+        }
+      }
+    }
+
+    // for sent.html page:
+    .img-box{
+      height: 150px;
+      width: 100%;
+      background: url("../img/maintenance.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}

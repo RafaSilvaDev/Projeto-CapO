@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <title>Capacidade Ociosa | Inserção de Parâmetros</title>
+  </head>
+  <body>
+    <section class="container">
+      <div class="logo"></div>
+      <h2>Capacidade Ociosa</h2>
+      <form action="{% url 'executed' %}" method="POST">
+        {% csrf_token %}
+        <label for="gb-group">
+          GB para extração e cálculo:
+          <div class="tooltip">
+            i
+            <span class="tooltiptext">Refere-se ao grupo de centros de custo a ser analisado pelo cálculo.</span>
+          </div>
+        </label>
+        <input id="gb-group" type="" name="gbgroup" value="{{request.POST.gbgroup}}" placeholder="ex: PS-PROD" required />
+
+        <label for="reciever">
+          Email do destinatário do cálculo:
+          <div class="tooltip">
+            i
+            <span class="tooltiptext">Ao final do processo, todos os arquivos finais gerados pela análise (inclusive o layout) serão enviados para este email.</span>
+          </div>
+        </label>
+        <input
+          id="reciever"
+          type="email"
+          name="mailto"
+          value="{{request.POST.mailto}}"
+          placeholder="exemplo@br.bosch.com"
+          required
+        />
+
+        <button class="execute" type="submit">Executar cálculo</button>
+      </form>
+    </section>
+  </body>
+</html>
