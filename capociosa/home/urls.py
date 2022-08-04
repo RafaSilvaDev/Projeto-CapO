@@ -5,4 +5,6 @@ from home import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('executed/', views.saveParametros, name='executed'),
+    path('sent/', views.sent, name='sent'),
+    path('getData/', views.getData, name='getData'),
 ]

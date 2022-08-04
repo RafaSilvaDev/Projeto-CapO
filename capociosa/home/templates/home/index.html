@@ -21,6 +21,18 @@
             <span class="tooltiptext">Refere-se ao grupo de centros de custo a ser analisado pelo cálculo.</span>
           </div>
         </label>
+        <!-- 
+          O select deve conter essas hierarquias:
+
+          GB     | Hierarquia
+        ----------------------
+          PS     | PS-PROD
+          ED     | 684C-ED011
+          CC     | 684C-CCPRD
+          PT     | 684C-PTPRO
+          PM     | 908C-PM5.32
+          ASBR   | AS-CPROD
+         -->
         <input id="gb-group" type="" name="gbgroup" value="{{request.POST.gbgroup}}" placeholder="ex: PS-PROD" required />
 
         <label for="reciever">
