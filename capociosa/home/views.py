@@ -1,4 +1,3 @@
-from ssl import OP_NO_RENEGOTIATION
 from django.shortcuts import render, redirect
 from home.models import Parametros
 from django.core.mail import send_mail
@@ -19,12 +18,12 @@ def saveParametros(request):
     Parametros.objects.create(gb=gbGrp, mailTo=mailTo)
 
     send_mail(
-      'Assunto', #assunto
-      'Mensagem', #mensagem
-      'rafabdasilva12@gmail.com', #de
-      ['rafabdasilva12@gmail.com'], #para
-      fail_silently=False,
+      'Assunto',
+      'Esse é o email que estou te enviando',
+      'rafabdsilva12@gmail.com',
+      ['rafabdasilva12@gmail.com']
     )
+
     # redirect para evitar uma nova inserção no banco ao atuazar a página
     return redirect('sent')
   

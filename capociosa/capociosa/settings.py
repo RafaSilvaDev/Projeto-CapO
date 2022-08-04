@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path, os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,11 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'SMTP.office365.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'rafel.silva7@br.bosch.com'
-EMAIL_HOST_PASSWORD = 'Monaco@2021h'
 
 
 # Application definition
@@ -135,3 +131,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# emails
+DEFAULT_FROM_EMAIL = 'rafabdasilva12@gmail.com'
+# EMAILL_BACKEND = 'django.core.mail.backend.console.EmailBackend'
+EMAILL_BACKEND = 'django.core.mail.backend.smtp.EmailBackend'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST = config('EMAIL_HOST')
