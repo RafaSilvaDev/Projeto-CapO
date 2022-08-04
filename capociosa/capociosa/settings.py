@@ -28,9 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'SMTP.office365.com'
+EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'rafel.silva7@br.bosch.com'
+EMAIL_HOST_USER = 'rafael.silva7@br.bosch.com'
 EMAIL_HOST_PASSWORD = 'Monaco@2021h'
 
 
