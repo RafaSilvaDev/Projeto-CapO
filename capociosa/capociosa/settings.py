@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path, os
+from decouple import config
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Build paths inside the project like this: BASE_DIR / 'subdir'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -26,13 +27,6 @@ SECRET_KEY = 'django-insecure-ti2%_tg(^z&nyo&_(5o%ti^+ilm^-ibun8b_zv#+rs8=*-su&=
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp-mail.outlook.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'rafael.silva7@br.bosch.com'
-EMAIL_HOST_PASSWORD = 'Monaco@2021h'
-
 
 # Application definition
 
@@ -135,3 +129,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# emails
+DEFAULT_FROM_EMAIL = 'rafabdasilva12@gmail.com'
+# EMAILL_BACKEND = 'django.core.mail.backend.console.EmailBackend'
+EMAILL_BACKEND = 'django.core.mail.backend.smtp.EmailBackend'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST = config('EMAIL_HOST')

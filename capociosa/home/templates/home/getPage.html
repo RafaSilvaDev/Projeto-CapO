@@ -6,15 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/getData.css' %}" />
-    <title>Capacidade Ociosa | PConfirmação</title>
+    <title>Capacidade Ociosa | Baixar dados</title>
   </head>
   <body>
-    <table>
-      <th>Últimos parâmetros inseridos</th>
-      <tr>
-        <td>{{gb}}</td>
-        <td>{{mail}}</td>
-      </tr>
-    </table>
+    <h1>Capturando os ultimos valores inseridos para download.</h1>
+    <a href="{% url 'getData' %}">Download</a>
   </body>
 </html>
