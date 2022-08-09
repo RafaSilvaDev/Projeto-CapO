@@ -2,7 +2,6 @@ import os
 from urllib import response
 from django.shortcuts import render, redirect
 from home.models import Parametros
-from django.core.mail import send_mail
 import pythoncom
 import win32com.client as win32
 from django.http import HttpResponse
@@ -20,6 +19,18 @@ def saveParametros(request):
     mailTo = request.POST.get("mailto")
     Parametros.objects.create(gb=gbGrp, mailTo=mailTo)
 
+    # primeiro email informando que entra na fila
+
+    pythoncom.CoInitialize()
+    outlook = win32.Dispatch('outlook.application')
+    mail = outlook.CreateItem(0)
+    mail.To = f'{mailTo}'
+    mail.Subject = 'Automação iniciada'
+    mail.Body = 'A automação foi engatilhada para a fila de execução na Fastlane (ambiente de execução de automações em nuvem). Aguarde por mais informações a respeito da execução do processo.'
+
+    mail.Send()
+
+    # segundo email para gatilho da automação
     pythoncom.CoInitialize()
     outlook = win32.Dispatch('outlook.application')
     mail = outlook.CreateItem(0)

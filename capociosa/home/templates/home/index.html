@@ -33,7 +33,17 @@
           PM     | 908C-PM5.32
           ASBR   | AS-CPROD
          -->
-        <input id="gb-group" type="" name="gbgroup" value="{{request.POST.gbgroup}}" placeholder="ex: PS-PROD" required />
+        <!-- <input id="gb-group" type="" name="gbgroup" value="{{request.POST.gbgroup}}" placeholder="ex: PS-PROD" required /> -->
+        
+        <select name="gbgroup" id="gb-group" required>
+          <option value="None" selected disabled>Selecione...</option>
+          <option value="PS-PROD">PS-PROD</option>
+          <option value="684C-ED011">684C-ED011</option>
+          <option value="684C-CCPRD">684C-CCPRD</option>
+          <option value="684C-PTPRO">684C-PTPRO</option>
+          <option value="908C-PM5.32">908C-PM5.32</option>
+          <option value="AS-CPROD">AS-CPROD</option>
+        </select>
 
         <label for="reciever">
           Email do destinatário do cálculo:

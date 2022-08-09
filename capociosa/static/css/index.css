@@ -75,7 +75,8 @@ body .container form label .tooltip .tooltiptext {
   top: -5px;
   left: 105%;
 }
-body .container form input {
+body .container form input,
+body .container form #gb-group {
   width: 100%;
   padding: 5px;
   margin-bottom: 60px;
